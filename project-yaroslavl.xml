@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+
+  <param name="sourceCS" value="geo"/>
+
+  <city name="Ярославль"/>
+
+  <!-- mobimap params -->
+  <mobimap>
+    <param name="provider" value="1"/>
+    <param name="hasdesc" value="true"/>
+    <param name="cityid" value="76"/>
+    <param name="name" value="yaroslavl"/>
+    <param name="namelatin" value="Yaroslavl"/>
+	<param name="timezone" value="3"/>
+    <param name="data" value="data"/>
+    <param name="graphic" value="gs"/>
+    <param name="minimap" value="gs"/>
+    <param name="locale" value="ru"/>
+    <param name="hasdesc" value="true" />
+    <param name="optimize.crossroads" value="false" />
+    <param name="optimize.addresses" value="true" />
+    <param name="about" value="Карта Ярославля. v.04.25 Проект `Нарисуй карту`, (с)2007 Андрей Зырянов. " />
+    <param name="default.scale" value="12"/>
+  </mobimap>
+
+  <targets>
+    <data-target>
+      <id value="data"/>
+      <file value="mapdata/yaroslavl/yaroslavl.i7ff"/>
+      <categorization>
+        <category id="11009" name="Гостиницы" fontname="Serif" fontsize="10" fontstyle="2" color="CF0000" icon="icons/hotel.png"/>
+		
+        <category id="17664" name="Рестораны" fontname="Serif" fontsize="10" fontstyle="2" color="6464B0" icon="icons/restaurant.png" showList="false"/>
+		
+        <category id="11521" name="Театр" fontname="Serif" fontsize="10" fontstyle="2" color="CF0000" icon="icons/theater.png"/>
+        <category id="11523" name="Кино" fontname="Serif" fontsize="10" fontstyle="2" color="CF0000" icon="icons/cinema.png"/>
+		
+        <category id="11781" name="Аптеки" fontname="Serif" fontsize="10" fontstyle="2" color="CF0000" showList="false" showLabel="false" icon="icons/apteka.png"/>
+        <category id="12290" name="Больницы" fontname="Serif" fontsize="10" fontstyle="2" color="6464B0" icon="icons/hospital.png"/>
+		
+        <category id="12033" name="АЗС" fontname="Serif" fontsize="10" fontstyle="2" color="CF0000" showList="false" icon="icons/gaz.png"/>
+        <category id="12035" name="СТО" fontname="Serif" fontsize="10" fontstyle="2" color="CF0000" showList="false" icon="icons/service.png"/>
+        <category id="12039" name="Запчасти" fontname="Serif" fontsize="10" fontstyle="2" color="CF0000" showList="false" icon="icons/service.png"/>
+        <category id="12043" name="Стоянка" fontname="Serif" fontsize="10" fontstyle="2" color="6464B0" showList="false" icon="icons/parking.png"/>
+        <category id="12046" name="Автомойка" fontname="Serif" fontsize="10" fontstyle="2" color="6464B0" showList="false" icon="icons/carwash.png"/>
+		
+        <category id="12037" name="Почта" fontname="Serif" fontsize="10" fontstyle="2" color="CF0000" icon="icons/post.png" showIcon="false" />
+		
+        <category id="12038" name="Банк/АТМ" fontname="Serif" fontsize="10" fontstyle="2" color="CF0000" icon="icons/bank.png" showLabel="false"/>
+		
+      </categorization>
+      <roadclass target="1" source="0"/>
+  	  <roadclass target="1" source="1"/>
+  	  <roadclass target="1" source="2"/>
+  	  <roadclass target="1" source="3"/>
+  	  <roadclass target="1" source="4"/>
+  	  <roadclass target="1" source="5"/>
+  	  <roadclass target="0" source="6"/>
+  	  <roadclass target="0" source="7"/>
+  	  <roadclass target="1" source="8"/>
+  	  <roadclass target="1" source="9"/>
+  	  <roadclass target="0" source="10"/>
+  	  <roadclass target="1" source="11"/>
+  	  <roadclass target="1" source="12"/>
+  	  <plain value="false"/>
+    </data-target>
+    <graphic-target>
+      <id value="gs"/>
+      <file value="mapdata/yaroslavl/yaroslavl-gs.i7ff"/>
+    </graphic-target>
+  </targets>
+
+  <!-- streets -->
+
+  <layer type="streets">
+    <data value="mapdata/yaroslavl/yaroslavl.mp" encoding="CP1251"/>
+    <target value="data"/>
+    <field target="streetname" source="polish.label"/>
+    <field target="roadclass" source="polish.type"/>
+    <field target="direction" source="polish.dirindicator"/>
+    <param name="streettypes" value="ул., просп., пр., бул., ш., туп., пер., наб., взв., пл."/>
+    <param name="threshold" value="3"/>
+    <param name="intersect" value="true"/>
+
+    <param name="polish.filter" value="polyline,0x1 polyline,0x2 polyline,0x3 polyline,0x4 polyline,0x5 polyline,0x6 polyline,0x8 polyline,0x9 polyline,0xB polyline,0xC" />
+
+    <optimizer method="simplify" value="3" />
+  </layer>
+
+  <!-- addresses -->
+  
+  <layer type="addresses">
+    <data value="mapdata/yaroslavl/yaroslavl.mp" encoding="CP1251"/>
+    <target value="data"/>
+    <field target="streetname" source="polish.streetdesc"/>
+    <field target="housenumber" source="polish.housenumber"/>
+    <param name="streettypes" value="ул., пр., просп., бул., шоссе, туп., пер., наб., взв., пл."/>
+  </layer>
+
+  <!-- poi -->
+
+  <layer type="graphic">
+    <data value="mapdata/yaroslavl/yaroslavl.mp" encoding="CP1251"/>
+    <target value="data"/>
+    <field target="name" source="polish.label"/>
+	  <field target="category" source="polish.type"/>
+  </layer>
+
+  <!-- gs -->
+
+  <layer type="graphic">
+    <data value="mapdata/yaroslavl/yaroslavl.mp" encoding="CP1251"/>
+    <target value="gs"/>
+    <param name="filled" value="false"/>
+    <param name="outlined" value="false"/>
+
+	  <table source="$geometry,$typeHex" target="FILL">
+	    <case source="polygon,0x50" target="ADCF94"/> <!-- forest -->
+	    <Xcase source="polygon,0x14" target="97CB70"/> <!-- park -->
+	    <case source="polygon,0x15" target="97CB70"/> <!-- park -->
+	    <case source="polygon,0x16" target="97CB70"/> <!-- park -->
+	    <case source="polygon,0x17" target="97CB70"/> <!-- city park -->
+
+	    <!-- sea -->
+	    <case source="polygon,0x28" target="84BEEF"/> 
+	    <case source="polygon,0x29" target="84BEEF"/> 
+	    <case source="polygon,0x30" target="84BEEF"/> 
+
+	    <!-- lake -->
+<!--	
+      <case source="polygon,0x3C" target="84BEEF"/> 
+	    <case source="polygon,0x3D" target="84BEEF"/> 
+	    <case source="polygon,0x3E" target="84BEEF"/> 
+	    <case source="polygon,0x3F" target="84BEEF"/> 
+	    <case source="polygon,0x40" target="84BEEF"/> 
+	    <case source="polygon,0x41" target="84BEEF"/> 
+	    <case source="polygon,0x42" target="84BEEF"/> 
+	    <case source="polygon,0x43" target="84BEEF"/> 
+	    <case source="polygon,0x44" target="84BEEF"/> 
+-->
+
+	    <!-- river -->
+	    <case source="polygon,0x45" target="84BEEF"/> 
+	    <case source="polygon,0x46" target="84BEEF"/> 
+	    <case source="polygon,0x47" target="84BEEF"/> 
+	    <case source="polygon,0x48" target="84BEEF"/> 
+	    <case source="polygon,0x49" target="84BEEF"/> 
+
+	    <!-- squares -->
+	    <case source="polygon,0x6A" target="EFEFEF"/> 
+	    <Xcase source="polygon,0x6B" target="EFEFEF"/> 
+	  </table>
+
+	  <table source="$geometry,$typeHex" target="OUTLINE">
+	    <case source="polyline,0x14" target="9C3C73"/> <!-- railroad -->
+	    <case source="polyline,0x1f" target="84BEEF"/> <!-- river -->
+	    <case source="polyline,0x44" target="84BEEF"/> <!-- river thick -->
+	    <case source="polyline,0x45" target="DF0000"/> <!-- city bounds -->
+	  </table>
+
+    <optimizer method="simplify" value="12" />
+    <optimizer method="split" value="2000" />
+
+  </layer>
+  
+</project>

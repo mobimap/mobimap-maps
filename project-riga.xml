@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+
+  <city name="Riga" />
+
+  <param name="sourceCS" value="metric"/>
+
+  <geo>
+    <point x="3414" y="11767" latitude="56.962696" longitude="23.990793" />
+    <point x="13074" y="12261" latitude="56.967117" longitude="24.147049" />
+    <point x="9725" y="4581" latitude="56.898323" longitude="24.092073" />
+  </geo>
+  
+  <!-- mobimap params -->
+  <mobimap>
+    <param name="provider" value="1"/>
+    <param name="hasdesc" value="true"/>
+    <param name="cityid" value="10201"/>
+    <param name="name" value="riga"/>
+    <param name="namelatin" value="Riga"/>
+	<param name="timezone" value="2"/>
+    <param name="data" value="data"/>
+    <param name="graphic" value="mobi"/>
+    <param name="minimap" value="mini"/>
+    <param name="locale" value="en"/>
+    <param name="optimize.crossroads" value="false" />
+    <param name="optimize.addresses" value="true" />
+    <param name="about" value="Riga Map" />
+  </mobimap>
+
+  <targets>
+    <data-target>
+      <id value="data"/>
+      <file value="mapdata/riga/riga-data.i7ff"/>
+      <categorization>
+		<category id="9" name="Stations" color="90386C" icon="icons/railwaystation.png" startupVisibility="true" showList="false" />
+        <category id="30" name="Rivers" color="2050FF" startupVisibility="true" showList="false" />
+      </categorization>
+    </data-target>
+    <graphic-target>
+      <id value="mobi"/>
+      <file value="mapdata/riga/riga-mobi.i7ff"/>
+    </graphic-target>
+    <graphic-target>
+      <id value="mini"/>
+      <file value="mapdata/riga/riga-mini.i7ff"/>
+    </graphic-target>
+  </targets>
+
+  <!-- MOBI -->
+  <layer type="graphic">
+    <geometry value="mapdata/riga/hydro.mif" />
+    <data value="mapdata/riga/hydro.mid" encoding="UTF-8"/>
+    <target value="mobi"/>
+	<param name="fill" value="84BEEF" />
+	<param name="outlined" value="false" />
+    <optimizer method="simplify" value="2" />
+    <optimizer method="split" value="1000" />
+  </layer>
+
+  <layer type="graphic">
+    <geometry value="mapdata/riga/green.mif" />
+    <data value="mapdata/riga/green.mid" encoding="UTF-8"/>
+    <target value="mobi"/>
+	<param name="fill" value="ADCF94" />
+	<param name="outlined" value="false" />
+    <optimizer method="simplify" value="2" />
+    <optimizer method="split" value="1000" />
+  </layer>
+  
+  <layer type="graphic">
+    <geometry value="mapdata/riga/railway.mif" />
+    <data value="mapdata/riga/railway.mid" encoding="UTF-8"/>
+    <target value="mobi"/>
+	<param name="outline" value="9C3C73" />
+  </layer>
+
+  <layer type="graphic">
+    <geometry value="mapdata/riga/border.mif" />
+    <data value="mapdata/riga/border.mid" encoding="UTF-8"/>
+    <target value="mobi"/>
+	<param name="outline" value="DF0000" />
+  </layer>
+
+  <!-- MINI -->
+  <layer type="graphic">
+    <geometry value="mapdata/riga/hydro.mif" />
+    <data value="mapdata/riga/hydro.mid" encoding="UTF-8"/>
+    <target value="mini"/>
+	<param name="fill" value="84BEEF" />
+	<param name="outlined" value="false" />
+    <optimizer method="simplify" value="40" />
+  </layer>
+
+  <layer type="graphic">
+    <geometry value="mapdata/riga/green.mif" />
+    <data value="mapdata/riga/green.mid" encoding="UTF-8"/>
+    <target value="mini"/>
+	<param name="fill" value="ADCF94" />
+	<param name="outlined" value="false" />
+    <optimizer method="simplify" value="40" />
+  </layer>
+  
+  <layer type="graphic">
+    <geometry value="mapdata/riga/railway.mif" />
+    <data value="mapdata/riga/railway.mid" encoding="UTF-8"/>
+    <target value="mini"/>
+	<param name="outline" value="9C3C73" />
+	<optimizer method="simplify" value="40" />
+  </layer>
+
+  <layer type="graphic">
+    <geometry value="mapdata/riga/border.mif" />
+    <data value="mapdata/riga/border.mid" encoding="UTF-8"/>
+    <target value="mini"/>
+	<param name="outline" value="DF0000" />
+	<optimizer method="simplify" value="40" />
+  </layer>
+
+
+  <!-- POI -->
+  <layer type="graphic">
+    <geometry value="mapdata/riga/labels.mif" />
+    <data value="mapdata/riga/labels.mid" encoding="UTF-8"/>
+    <target value="data"/>
+    <field target="category" source="CATEGORY"/>
+    <field target="name" source="NAME"/>
+    <field target="icon" source="ICON"/>
+  </layer>
+
+  <!-- STREETS -->
+  <layer type="streets">
+    <geometry value="mapdata/riga/graph.mif" />
+    <data value="mapdata/riga/graph.mid" encoding="UTF-8"/>
+    <target value="data"/>
+    <param name="threshold" value="8"/>
+    <param name="intersect" value="true"/>
+    <field target="id" source="ID"/>
+    <field target="streetname" source="ST_NAME"/>
+    <field target="roadclass" source="ST_TYPE"/>
+	<param name="streettypes" value="ул., просп., пр., бул., шоссе, туп., пер., наб., взв., пл."/>
+  </layer>
+
+</project>

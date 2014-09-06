@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+
+  <city name="Київ" />
+
+  <param name="sourceCS" value="metric"/>
+
+  
+  <geo>
+    <point x="9034" y="34614" latitude="50.524406" longitude="30.363163" />
+    <point x="23137" y="12545" latitude="50.326031" longitude="30.561604" />
+    <point x="32037" y="21375" latitude="50.405403" longitude="30.686853" />
+  </geo>
+  
+  
+  <!-- mobimap params -->
+  <mobimap>
+    <param name="provider" value="1"/>
+    <param name="hasdesc" value="true"/>
+    <param name="cityid" value="10101"/>
+    <param name="name" value="kiev"/>
+    <param name="namelatin" value="Kiev"/>
+    <param name="timezone" value="2"/>
+    <param name="data" value="data"/>
+    <param name="graphic" value="mobi"/>
+    <param name="minimap" value="mini"/>
+    <param name="locale" value="ru"/>
+    <param name="pages" value=""/>
+    <param name="optimize.crossroads" value="false" />
+    <param name="optimize.addresses" value="true" />
+    <param name="about" value="Мапа Київа" />
+  </mobimap>
+
+  <targets>
+    <data-target>
+      <id value="data"/>
+      <file value="mapdata/kiev/kiev-data.i7ff"/>
+      <categorization>
+		<category id="9" name="Станции" color="90386C" icon="icons/railwaystation.png" startupVisibility="true" showList="false" />
+		<!--<category id="13" name="Автовокзалы" color="90386C" startupVisibility="true" />-->
+		<!--<category id="21" name="АЗС" color="CF2020" startupVisibility="true" showList="false" />-->
+		<category id="25" name="Метро" color="DF0000" startupVisibility="true" />
+		<category id="26" name="Святошинсько-Броварська лінія" parent="25" icon="icons/metrored.png" color="CF2020" startupVisibility="true" />
+		<category id="27" name="Куренівсько-Червоноармійскька лінія" parent="25" icon="icons/metroblue.png" color="2020CF" startupVisibility="true" />
+		<category id="28" name="Сирецько-Печерська лінія" parent="25" icon="icons/metrogreen.png" color="20CF20" startupVisibility="true" />
+        <category id="30" name="Реки" color="2050FF" startupVisibility="true" showList="false" />
+      </categorization>
+    </data-target>
+    <graphic-target>
+      <id value="mobi"/>
+      <file value="mapdata/kiev/kiev-mobi.i7ff"/>
+    </graphic-target>
+    <graphic-target>
+      <id value="mini"/>
+      <file value="mapdata/kiev/kiev-mini.i7ff"/>
+    </graphic-target>
+  </targets>
+
+  <!-- MOBI -->
+  <layer type="graphic">
+    <geometry value="mapdata/kiev/hydro.mif" />
+    <data value="mapdata/kiev/hydro.mid" encoding="UTF-8"/>
+    <target value="mobi"/>
+	<param name="fill" value="84BEEF" />
+	<param name="outlined" value="false" />
+    <optimizer method="simplify" value="15" />
+    <optimizer method="split" value="1000" />
+  </layer>
+
+  <layer type="graphic">
+    <geometry value="mapdata/kiev/forest.mif" />
+    <data value="mapdata/kiev/forest.mid" encoding="UTF-8"/>
+    <target value="mobi"/>
+	<param name="fill" value="ADCF94" />
+	<param name="outlined" value="false" />
+    <optimizer method="simplify" value="15" />
+    <optimizer method="split" value="1000" />
+  </layer>
+  
+  <layer type="graphic">
+    <geometry value="mapdata/kiev/railway.mif" />
+    <data value="mapdata/kiev/railway.mid" encoding="UTF-8"/>
+    <target value="mobi"/>
+	<param name="outline" value="9C3C73" />
+	<optimizer method="simplify" value="10" />
+  </layer>
+
+  <!-- MINI -->
+  <layer type="graphic">
+    <geometry value="mapdata/kiev/background.mif" />
+    <data value="mapdata/kiev/background.mid" encoding="CP1251"/>
+    <target value="mini"/>
+    <optimizer method="simplify" value="40" />
+  </layer>
+
+
+  <!-- POI -->
+  <layer type="graphic">
+    <geometry value="mapdata/kiev/labels.mif" />
+    <data value="mapdata/kiev/labels.mid"/>
+    <target value="data"/>
+    <field target="category" source="CATEGORY"/>
+    <field target="name" source="NAME"/>
+    <field target="icon" source="ICON"/>
+  </layer>
+
+  <!-- STREETS -->
+  <layer type="streets">
+    <geometry value="mapdata/kiev/graph.mif" />
+    <data value="mapdata/kiev/graph.mid" encoding="CP1251"/>
+    <target value="data"/>
+    <param name="threshold" value="8"/>
+    <param name="intersect" value="true"/>
+    <field target="id" source="ID"/>
+    <field target="streetname" source="ST_NAME"/>
+    <field target="roadclass" source="ST_TYPE"/>
+	<param name="streettypes" value="ул., просп., пр., бул., шоссе, туп., пер., наб., взв., пл."/>
+  </layer>
+
+</project>

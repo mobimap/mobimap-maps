@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+
+  <city name="Минск" />
+
+  <param name="sourceCS" value="metric"/>
+
+  <geo>
+    <point x="2290" y="12993" latitude="53.945103" longitude="27.446938" />
+    <point x="17832" y="11980" latitude="53.936005" longitude="27.683315" />
+    <point x="8121" y="669" latitude="53.834381" longitude="27.535601" />
+  </geo>
+  
+  <!-- mobimap params -->
+  <mobimap>
+    <param name="provider" value="1"/>
+    <param name="hasdesc" value="true"/>
+    <param name="cityid" value="10021"/>
+    <param name="name" value="minsk"/>
+    <param name="namelatin" value="Minsk"/>
+	<param name="timezone" value="2"/>
+    <param name="data" value="data"/>
+    <param name="graphic" value="mobi"/>
+    <param name="minimap" value="mini"/>
+    <param name="locale" value="ru"/>
+    <param name="optimize.crossroads" value="false" />
+    <param name="optimize.addresses" value="true" />
+    <param name="about" value="Карта Минска" />
+  </mobimap>
+
+  <targets>
+    <data-target>
+      <id value="data"/>
+      <file value="mapdata/minsk/minsk-data.i7ff"/>
+      <categorization>
+		<category id="19" name="Станции" color="90386C" icon="icons/railwaystation.png" startupVisibility="true" showList="false" />
+		<category id="25" name="Метро" color="DF0000" startupVisibility="true" />
+		<category id="13" name="Московская" parent="25" color="DF0000" icon="icons/metrored.png" startupVisibility="true" />
+		<category id="18" name="Автозаводская" parent="25" color="DF0000" icon="icons/metroblue.png" startupVisibility="true" />
+        <category id="20" name="Реки" color="2050FF" startupVisibility="true" showList="false" />
+      </categorization>
+    </data-target>
+    <graphic-target>
+      <id value="mobi"/>
+      <file value="mapdata/minsk/minsk-mobi.i7ff"/>
+    </graphic-target>
+    <graphic-target>
+      <id value="mini"/>
+      <file value="mapdata/minsk/minsk-mini.i7ff"/>
+    </graphic-target>
+  </targets>
+
+  <!-- MOBI -->
+  <layer type="graphic">
+    <geometry value="mapdata/minsk/hydro.mif" />
+    <data value="mapdata/minsk/hydro.mid" encoding="CP1251"/>
+    <target value="mobi"/>
+	<param name="fill" value="84BEEF" />
+	<param name="outlined" value="false" />
+    <optimizer method="simplify" value="10" />
+    <optimizer method="split" value="1000" />
+  </layer>
+
+  <layer type="graphic">
+    <geometry value="mapdata/minsk/forest.mif" />
+    <data value="mapdata/minsk/forest.mid" encoding="CP1251"/>
+    <target value="mobi"/>
+	<param name="fill" value="ADCF94" />
+	<param name="outlined" value="false" />
+    <optimizer method="simplify" value="10" />
+    <optimizer method="split" value="1000" />
+  </layer>
+  
+  <layer type="graphic">
+    <geometry value="mapdata/minsk/railway.mif" />
+    <data value="mapdata/minsk/railway.mid" encoding="CP1251"/>
+    <target value="mobi"/>
+	<param name="outline" value="9C3C73" />
+	<optimizer method="simplify" value="10" />
+  </layer>
+
+  <!-- MINI -->
+  <layer type="graphic">
+    <geometry value="mapdata/minsk/hydro.mif" />
+    <data value="mapdata/minsk/hydro.mid" encoding="CP1251"/>
+    <target value="mini"/>
+	<param name="fill" value="84BEEF" />
+	<param name="outlined" value="false" />
+    <optimizer method="simplify" value="40" />
+  </layer>
+
+  <layer type="graphic">
+    <geometry value="mapdata/minsk/forest.mif" />
+    <data value="mapdata/minsk/forest.mid" encoding="CP1251"/>
+    <target value="mini"/>
+	<param name="fill" value="ADCF94" />
+	<param name="outlined" value="false" />
+    <optimizer method="simplify" value="40" />
+  </layer>
+  
+  <layer type="graphic">
+    <geometry value="mapdata/minsk/railway.mif" />
+    <data value="mapdata/minsk/railway.mid" encoding="CP1251"/>
+    <target value="mini"/>
+	<param name="outline" value="9C3C73" />
+	<optimizer method="simplify" value="40" />
+  </layer>
+
+
+  <!-- POI -->
+  <layer type="graphic">
+    <geometry value="mapdata/minsk/labels.mif" />
+    <data value="mapdata/minsk/labels.mid"/>
+    <target value="data"/>
+    <field target="category" source="CATEGORY"/>
+    <field target="name" source="NAME"/>
+    <field target="icon" source="ICON"/>
+  </layer>
+
+  <!-- STREETS -->
+  <layer type="streets">
+    <geometry value="mapdata/minsk/graph.mif" />
+    <data value="mapdata/minsk/graph.mid" encoding="CP1251"/>
+    <target value="data"/>
+    <param name="threshold" value="8"/>
+    <param name="intersect" value="true"/>
+    <field target="id" source="ID"/>
+    <field target="streetname" source="ST_NAME"/>
+    <field target="roadclass" source="ST_TYPE"/>
+	<param name="streettypes" value="ул., просп., пр., бул., шоссе, туп., пер., наб., взв., пл."/>
+  </layer>
+
+</project>

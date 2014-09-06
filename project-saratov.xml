@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+
+  <city name="Саратов" x="40000" y="34000"/>
+
+  <param name="sourceCS" value="metric"/>
+
+  <geo>
+    <point x="573489" y="5709509" latitude="51.531975" longitude="46.059536" />
+    <point x="567341" y="5718710" latitude="51.614799" longitude="45.972206" />
+    <point x="564599" y="5703264" latitude="51.476761" longitude="45.930019" />
+  </geo>
+
+  <!-- mobimap params -->
+  <mobimap>
+    <param name="provider" value="1"/>
+    <param name="hasdesc" value="true"/>
+    <param name="cityid" value="64"/>
+    <param name="name" value="saratov"/>
+    <param name="namelatin" value="Saratov"/>
+    <param name="timezone" value="3"/>
+    <param name="data" value="data"/>
+    <param name="graphic" value="mm"/>
+    <param name="minimap" value="minimap"/>
+    <param name="locale" value="ru"/>
+    <param name="pages" value=""/>
+    <param name="optimize.crossroads" value="false" />
+    <param name="optimize.addresses" value="false" />
+    <param name="about" value="Карта Саратова" />
+    <param name="default.originx" value="573000"/>
+    <param name="default.originy" value="5709500"/>
+    <param name="default.scale" value="10"/>
+  </mobimap>
+
+  <targets>
+    <data-target>
+      <id value="data"/>
+      <file value="mapdata/saratov/saratov-data.i7ff"/>
+      <categorization>
+        <category id="8" name="Транспорт" color="CF2020" fontname="Dialog"
+        fontsize="10" fontstyle="2" startupVisibility="true" />
+        <category id="26" name="Районы" fontname="Serif"
+        fontsize="11" fontstyle="2" color="88643C" startupVisibility="true" />
+      </categorization>
+    </data-target>
+    <graphic-target>
+      <id value="gs"/>
+      <file value="mapdata/saratov/saratov-gs.i7ff"/>
+    </graphic-target>
+    <graphic-target>
+      <id value="mm"/>
+      <file value="mapdata/saratov/saratov-mm.i7ff"/>
+    </graphic-target>
+    <graphic-target>
+      <id value="minimap"/>
+      <file value="mapdata/saratov/saratov-minimap.i7ff"/>
+    </graphic-target>
+  </targets>
+
+  <!-- DESKTOP -->
+  <layer type="graphic">
+    <geometry value="mapdata/saratov/volga.mif" />
+    <data value="mapdata/saratov/volga.mid" encoding="CP1251"/>
+    <target value="gs"/>
+    <fill value="84BEEF" />
+    <param name="outlined" value="false"/>
+    <optimizer method="simplify" value="2" />
+    <optimizer method="split" value="5000" />
+  </layer>
+
+  <layer type="graphic">
+    <geometry value="mapdata/saratov/forest.mif" />
+    <data value="mapdata/saratov/forest.mid" encoding="CP1251"/>
+    <target value="gs"/>
+    <fill value="ADCF94" />
+    <param name="outlined" value="false"/>
+    <optimizer method="simplify" value="2" />
+    <optimizer method="split" value="5000" />
+  </layer>
+
+  <layer type="graphic">
+    <geometry value="mapdata/saratov/islands.mif" />
+    <data value="mapdata/saratov/islands.mid" encoding="CP1251"/>
+    <target value="gs"/>
+    <param name="fill" value="ADCF94" />
+    <param name="outlined" value="false"/>
+    <optimizer method="simplify" value="3" />
+    <optimizer method="split" value="1000" />
+  </layer>
+
+  <layer type="graphic">
+    <geometry value="mapdata/saratov/rivers.mif" />
+    <data value="mapdata/saratov/rivers.mid" encoding="CP1251"/>
+    <target value="gs"/>
+    <outline value="84BEEF" />
+    <optimizer method="simplify" value="5" />
+  </layer>
+
+  <layer type="graphic">
+    <geometry value="mapdata/saratov/railway_mm.mif" />
+    <data value="mapdata/saratov/railway_mm.mid" encoding="CP1251"/>
+    <target value="gs"/>
+    <outline value="9C3C73" />
+  </layer>
+
+
+  <!-- MOBIMAP -->
+  <layer type="graphic">
+    <geometry value="mapdata/saratov/volga_mm.mif" />
+    <data value="mapdata/saratov/volga_mm.mid" encoding="CP1251"/>
+    <target value="mm"/>
+    <fill value="84BEEF" />
+    <param name="outlined" value="false"/>
+    <optimizer method="simplify" value="20" />
+    <optimizer method="split" value="1500" />
+  </layer>
+
+  <layer type="graphic">
+    <geometry value="mapdata/saratov/forest_mm.mif" />
+    <data value="mapdata/saratov/forest_mm.mid" encoding="CP1251"/>
+    <target value="mm"/>
+    <fill value="ADCF94" />
+    <param name="outlined" value="false"/>
+    <optimizer method="simplify" value="22" />
+    <optimizer method="split" value="1000" />
+  </layer>
+
+  <layer type="graphic">
+    <geometry value="mapdata/saratov/rivers.mif" />
+    <data value="mapdata/saratov/rivers.mid" encoding="CP1251"/>
+    <target value="gs"/>
+    <outline value="84BEEF" />
+    <optimizer method="simplify" value="10" />
+  </layer>
+
+  <layer type="graphic">
+    <geometry value="mapdata/saratov/railway_mm.mif" />
+    <data value="mapdata/saratov/railway_mm.mid" encoding="CP1251"/>
+    <target value="mm"/>
+    <outline value="9C3C73" />
+    <optimizer method="simplify" value="15" />
+  </layer>
+
+
+  <!-- MOBIMAP-MINIMAP -->
+  <layer type="graphic">
+    <geometry value="mapdata/saratov/volga_mm.mif" />
+    <data value="mapdata/saratov/volga_mm.mid" encoding="CP1251"/>
+    <target value="minimap"/>
+    <fill value="84BEEF" />
+    <param name="outlined" value="false"/>
+    <optimizer method="simplify" value="50" />
+  </layer>
+
+  <layer type="graphic">
+    <geometry value="mapdata/saratov/forest_mm.mif" />
+    <data value="mapdata/saratov/forest_mm.mid" encoding="CP1251"/>
+    <target value="minimap"/>
+    <fill value="ADCF94" />
+    <param name="outlined" value="false"/>
+    <optimizer method="simplify" value="50" />
+  </layer>
+
+  <layer type="graphic">
+    <geometry value="mapdata/saratov/railway_mm.mif" />
+    <data value="mapdata/saratov/railway_mm.mid" encoding="CP1251"/>
+    <target value="minimap"/>
+    <outline value="9C3C73" />
+    <optimizer method="simplify" value="30" />
+  </layer>
+
+
+  <!-- POI -->
+  <layer type="graphic">
+    <geometry value="mapdata/saratov/labels.mif" />
+    <data value="mapdata/saratov/labels.mid"/>
+    <target value="data"/>
+    <field target="category" source="CATEGORY"/>
+    <field target="name" source="NAME"/>
+    <field target="icon" source="ICON"/>
+  </layer>
+
+  <!-- STREETS -->
+  <layer type="streets">
+    <geometry value="mapdata/saratov/graph.mif" />
+    <data value="mapdata/saratov/graph.mid" encoding="CP1251"/>
+    <target value="data"/>
+    <param name="threshold" value="8"/>
+    <param name="intersect" value="true"/>
+    <field target="id" source="ID"/>
+    <field target="streetname" source="ST_NAME"/>
+    <field target="roadclass" source="ST_TYPE"/>
+	<param name="streettypes" value="ул., просп., пр., бул., шоссе, туп., пер., наб., взв., пл."/>
+  </layer>
+
+  <layer type="addresses">
+    <geometry value="mapdata/saratov/addresses.mif" />
+    <data value="mapdata/saratov/addresses.mid" encoding="CP1251"/>
+    <target value="data"/>
+    <field target="streetname" source="ST_NAME"/>
+    <field target="housenumber" source="HOUSE"/>
+	<param name="streettypes" value="ул., просп., пр., бул., шоссе, туп., пер., наб., взв., пл."/>
+  </layer>
+
+</project>

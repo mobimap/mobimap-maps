@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." default="rebuild">
+
+  <target name="yaroslavl">
+    <java jar="MobimapBuilder.jar" fork="true">
+      <jvmarg value="-Xmx200M"/>
+      <arg value="project-yaroslavl.xml"/>
+    </java>
+  </target>
+
+  <target name="minsk">
+    <java jar="MobimapBuilder.jar" fork="true">
+      <jvmarg value="-Xmx200M"/>
+      <arg value="project-minsk.xml"/>
+    </java>
+  </target>
+
+  <target name="riga">
+    <java jar="MobimapBuilder.jar" fork="true">
+      <jvmarg value="-Xmx200M"/>
+      <arg value="project-riga.xml"/>
+    </java>
+  </target>
+
+  <target name="kiev">
+    <java jar="MobimapBuilder.jar" fork="true">
+      <jvmarg value="-Xmx200M"/>
+      <arg value="project-kiev.xml"/>
+    </java>
+  </target>
+
+  <target name="saratov">
+    <java jar="MobimapBuilder.jar" fork="true">
+      <jvmarg value="-Xmx200M"/>
+      <arg value="project-saratov.xml"/>
+    </java>
+  </target>
+
+
+  <target name="rebuild" depends="minsk, riga, yaroslavl" />
+
+</project>
